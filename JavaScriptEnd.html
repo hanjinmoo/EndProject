@@ -145,6 +145,46 @@
         }
         return 0;
       }
+
+      function moveToLeft(top)
+      {
+        let LDiv = document.getElementById("LeftUser");
+        LDiv.style.top = top + 'px';
+      }
+
+      function moveToRight(top)
+      {
+        let RDiv = document.getElementById("RightUser");
+        RDiv.style.top = top + 'px';
+      }
+
+      function keyDownHandler()
+      {
+        if(gameWhether == 0 && event.keyCode == 32)
+        {
+          ballBounceCheck();
+        }
+        else if(event.keyCode == 38 && divRightTop >= 0)   // Right - 위쪽
+        {
+          divRightTop -= 20;
+          moveToRight(divRightTop);
+        }
+        else if(event.keyCode == 40 && divRightTop <= window.innerHeight - 210) // Right - 아래쪽
+        {
+          divRightTop += 20;
+          moveToRight(divRightTop);
+        }
+        else if(event.keyCode == 87 && divLeftTop >= 0) // Left - 위쪽
+        {
+          divLeftTop -= 20;
+          moveToLeft(divLeftTop);
+        }
+        else if(event.keyCode == 83 && divLeftTop <= window.innerHeight - 210) // Left - 아래쪽
+        {
+          divLeftTop += 20;
+          moveToLeft(divLeftTop);
+        }
+      }
     </script>
   </head>
   <body>
