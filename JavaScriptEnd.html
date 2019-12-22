@@ -77,6 +77,11 @@
         moveToLeft(divLeftTop);
         moveToRight(divRightTop);
       }
+
+      function ScoreUpdate(LeftScore, RightScore)
+      {
+        document.querySelector("h2").innerHTML = `${LeftScore} : ${RightScore}`;
+      }
     </script>
   </head>
   <body>
