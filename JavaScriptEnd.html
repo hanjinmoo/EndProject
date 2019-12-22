@@ -148,13 +148,13 @@
 
       function moveToLeft(top)
       {
-        let LDiv = document.getElementById("LeftUser");
+        let LDiv = document.getElementById("P1");
         LDiv.style.top = top + 'px';
       }
 
       function moveToRight(top)
       {
-        let RDiv = document.getElementById("RightUser");
+        let RDiv = document.getElementById("P2");
         RDiv.style.top = top + 'px';
       }
 
@@ -184,6 +184,13 @@
           divLeftTop += 20;
           moveToLeft(divLeftTop);
         }
+      }
+
+      window.onload = function()
+      {
+        setInterval(ballMove, 50);
+        ScoreUpdate(LeftScore, RightScore);
+        document.addEventListener('keydown', keyDownHandler);
       }
     </script>
   </head>
