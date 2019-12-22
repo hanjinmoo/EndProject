@@ -44,7 +44,39 @@
     }
     </style>
     <script type="text/javascript">
+      let divLeftTop = 400, divRightTop = 400; // 왼쪽과 오른쪽 유저의 위치(위, 아래)
+      let LeftScore = 0, RightScore = 0; // 왼쪽과 오른쪽 유저의 점수
+      let ballLeft = 350, ballTop = 470; // 공 위치
+      let ballAngle = 1; // 공 각도
+      let ballposition = -1; // -1 : 왼쪽, 1 : 오른쪽
+      let gameWhether = 0; // 게임 여부상황 시작 전 : 0, 시작 후 : 1
 
+      function gameSetting()
+      {
+        if(LeftScore >= 3 || RightScore >= 3)
+        {
+          if(LeftScore >= 3)
+              alert("RedTeam Win!!");
+          else if(RightScore >= 3)
+              alert("BlueTeam Win!!");
+
+          LeftScore = RightScore = 0;
+        }
+
+        divLeftTop = 400;
+        divRightTop = 400;
+        ballTop = 470;
+        ballAngle = 1;
+        if(ballposition == -1)
+          ballLeft = 350;
+        else
+          ballLeft = 1450;
+
+        ScoreUpdate(LeftScore, RightScore);
+        ballUpdate(ballLeft, ballTop);
+        moveToLeft(divLeftTop);
+        moveToRight(divRightTop);
+      }
     </script>
   </head>
   <body>
